@@ -12,7 +12,7 @@ var Player = React.createClass({
     	});
 
 		return(
-				<div className="player">
+				<div className="player text-center">
 			      
 			      <div className="player-backward">
 			        <button onClick={this.props.backward}><i className="fa fa-backward"></i></button>

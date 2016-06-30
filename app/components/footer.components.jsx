@@ -4,7 +4,7 @@ var Footer = React.createClass({
 	render : function(){
 		return(
 				<div className="footer">
-					<p>Made with love using <img src="public/img/soundcloud.png" className="soundcloud"/></p>
+					<p className="text-center">Made with love using <img src="public/img/soundcloud-black.png" className="soundcloud"/></p>
 				</div>
 			);
 	}
