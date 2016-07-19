@@ -4,12 +4,32 @@
 
 body{
   margin: 0;
+  background-image: url("../img/background.jpg");
   /* change font-fam */
 }
+/*progress {
+  /* style rules 
+}
+progress::-webkit-progress-bar {
 
+}
+progress::-webkit-progress-value {
+ 
+}*/
+.player-time-total,.player-time-elapsed{
+	color: white;
+	margin-left: 12px;
+	margin-right: 12px;
+}
+.details h3{
+	color: white; /* Specifies the text colour*/
+}
+.soundcloudlogo{
+	margin-left: 4px;
+}
 .footer{
   color: white; /* Specifies the text colour*/
-  position: absolute;/* Typical footer properties. Should be included within React component itself*/
+  position: absolute;/* Typical footer properties. Could be included within React component itself*/
   bottom: 0px;
   width: 100%;
   background: #1a1a1a;

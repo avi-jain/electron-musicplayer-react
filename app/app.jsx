@@ -6,11 +6,8 @@ var App = React.createClass({
 	
 	render: function(){
 		
-		var bgImage = {
-    		backgroundImage : "public/img/" 
-  		};
 		return(
-			<div style={bgImage}>
+			<div>
 				<AppContainer />
 			</div>
 			);
