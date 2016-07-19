@@ -4,7 +4,8 @@ var ProgBar = React.createClass({
 	render : function(){
 		var progbarStyle = {
 			width: 500,
-  			height: 10
+  			height: 5,
+  			marginTop: 10
 		}
 		return(
 				<div className="progbar text-center">

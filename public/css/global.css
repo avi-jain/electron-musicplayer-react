@@ -7,15 +7,22 @@ body{
   background-image: url("../img/background.jpg");
   /* change font-fam */
 }
-/*progress {
-  /* style rules 
+progress {
+  /* Reset the default appearance */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
 }
+/* Chrome/Safari pseudo-class that will target the track of the <progress> element */
 progress::-webkit-progress-bar {
-
+	border-radius: 3px;
+	background: white;
 }
+/* Chrome/Safari pseudo-class that will target the bar itself*/
 progress::-webkit-progress-value {
- 
-}*/
+ 	border-radius: 3px;
+ 	background-color: black;
+}
 .player-time-total,.player-time-elapsed{
 	color: white;
 	margin-left: 12px;

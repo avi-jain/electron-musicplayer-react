@@ -9,3 +9,7 @@ This is a minimal Electron application based on the [Quick Start Guide](http://e
 Learn more about Electron and its API in the [documentation](http://electron.atom.io/docs/latest).
 Link to the tutorial : https://scotch.io/tutorials/build-a-music-player-with-react-electron-i-setup-basic-concepts
 
+TO-DO -> 1.Use Soundcloud-audio npm package instead of the native api
+		 2.Implement the autocomplete search functionality
+		 3.Improve aesthetics
+		 4.Implement seeker

@@ -1,3 +1,4 @@
+//client_id: 
 var React = require('react');
 //Sound component
 var Sound = require('react-sound');
@@ -10,7 +11,7 @@ var Player  = require('../components/player.components.jsx');
 var ProgBar = require('../components/progress.components.jsx');
 
 var AppContainer = React.createClass({
-	
+
 	getInitialState : function(){
       return{ 
       	track: {stream_url: '', title: '', artwork_url: ''},
@@ -37,11 +38,17 @@ var AppContainer = React.createClass({
 	   this.setState({playStatus: Sound.status.STOPPED});
   	},
     forward(){
-
+      this.setState({track: response.data.tracks[randomNumber + 1]});
   	},
   	backward(){
-
+      this.setState({track: response.data.tracks[randomNumber - 1]});
   	},
+    randomize(){
+
+    },
+    prepareUrl(url){                                                    //uhmm...changing the quotes changes the code?
+      return `${url}?client_id=`                                        //PUT ID here
+    },
   	handleSongPlaying(audio){                                           //Can take in audio instance
       this.setState({ elapsed: this.formatMilliseconds(audio.position),
                       total: this.formatMilliseconds(audio.duration),
@@ -67,29 +74,36 @@ var AppContainer = React.createClass({
       return (minutes < 10 ? '0' : '') + minutes + ':' +
       (seconds < 10 ? '0' : '') + seconds;
     },
-	// componentDidMount lifecycle method. Called once a component is loaded
-    /*componentDidMount: function() {
+	  // componentDidMount lifecycle method. Called once a component is loaded
+    componentDidMount: function() {
         this.randomTrack();
     },
     
     randomTrack : function(){
     	let _this = this; // WHY?
-    	Axios.get('https://api.soundcloud.com/playlists/242598684?client_id=${this.client_id}')
+      //make sure it ain't calling the local filesystem
+    	Axios.get('https://api.soundcloud.com/playlists/242598684?client_id=') //PUT ID here
   		.then(function (response) {
-    	console.log(response.data);
+      //SOUNDCLOUD API - Accessing Sets/Playlists
+      //To get a list of tracks in a set, send a GET request to the /playlists endpoint with the set id. Will respond with array 'tracks'
+      //Axios - Use .data to access response
+      const playlistLength = response.data.tracks.length; //Store playlist length
+    	console.log(playlistLength);
+      const randomNumber = Math.floor((Math.random() * playlistLength) + 1); //For random track number
+      _this.setState({track: response.data.tracks[randomNumber]});
   		})
   		.catch(function (error) {
     	console.log(error);
   		});
 
     },
-*/
+
 	render : function(){
 		return(
 			<div className="music-player">
-				<Details title={'Photograph - Ed Sheeran'}/>
+				<Details title={this.state.track.title}/>
 				<Sound
-				    url="http://stuffdown.com/2015/Best%20of%20August%202015%20-%20(www.SongsLover.mobi)/19.%20Ed%20Sheeran%20-%20Photograph%20-%20(www.SongsLover.mobi).mp3"
+				    url={this.prepareUrl(this.state.track.stream_url)}
 				    playStatus={this.state.playStatus}
 				    playFromPosition={100 /* in milliseconds */}
 				    onPlaying={this.handleSongPlaying}
@@ -99,7 +113,8 @@ var AppContainer = React.createClass({
                 stop={this.stop}
                 playStatus={this.state.playStatus}
                 forward={this.forward}
-                backward={this.backward}/>
+                backward={this.backward}
+                random={this.randomize}/>
 				
         <ProgBar elapsed={this.state.elapsed}
           				total={this.state.total}
