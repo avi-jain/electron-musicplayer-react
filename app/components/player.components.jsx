@@ -10,7 +10,9 @@ var Player = React.createClass({
 			//background:transparent,
 			width: 50,
   			height: 50,
-  			borderRadius: 100
+  			borderRadius: 100,
+  			border: 1,
+  			margin: 3
 		};
 		var playPauseClass = ClassNames({
       		'fa fa-play': this.props.playStatus === 'PLAYING' ? false : true, //the getStatusText method in the API returns 
