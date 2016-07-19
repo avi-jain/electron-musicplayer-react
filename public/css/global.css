@@ -7,22 +7,10 @@ body{
   /* change font-fam */
 }
 
-.player .player__main button:hover, 
-.player .player__backward button:hover, 
-.player .player__forward button:hover{
-  color: rgba(243, 139, 114, 0.7);
-  border: 1px solid rgba(243, 139, 114, 0.7);
-}
-
 .footer{
   color: white; /* Specifies the text colour*/
   position: absolute;/* Typical footer properties. Should be included within React component itself*/
   bottom: 0px;
   width: 100%;
   background: #1a1a1a;
-}
-
-.footer .soundcloud{
-  height: 25px;
-  width: auto;
 }
