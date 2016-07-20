@@ -4,7 +4,9 @@
 This is a minimal Electron application based on the [Quick Start Guide](http://electron.atom.io/docs/latest/tutorial/quick-start) and the Scotch.io tutorial. Unlike the tutorial, I haven't made use of the latest ES6 React syntax. 
 Put your SoundCloud client id in the right places in the container and you're good to go. Also, you might want to change the playlist URL.
 The app also allows you to locally save the mp3 files :)
-TO-DO -> 1.<del>Implement player controls</del>
+
+TO-DO ->	 
+		 1.<del>Implement player controls</del>
 		 2.Implement the autocomplete/search functionality
 		 3.Improve aesthetics (Cover Art maybe)
 		 4.Implement seeker
