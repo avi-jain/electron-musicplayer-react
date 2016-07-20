@@ -35,6 +35,12 @@ progress::-webkit-progress-value {
 .details h3{
 	color: white; /* Specifies the text colour*/
 }
+.downloadbtn{
+  border-radius:0;
+  background: #1a1a1a;
+  color:white;
+  border:0px;
+}
 .soundcloudlogo{
 	margin-left: 4px;
 }
