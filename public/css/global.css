@@ -1,11 +1,15 @@
 *,*:before, *:after {
 	box-sizing: border-box;
 }
+html{
 
+}
 body{
   margin: 0;
-  background-image: url("../img/background.jpg");
-  /* change font-fam */
+  font-family: 'Montserrat','Indie Flower', sans-serif;/* change font-fam */
+  /*background-image: url("../img/background.jpg");
+  background-size: cover; Fix Image res*/
+  background-color: #263238;
 }
 progress {
   /* Reset the default appearance */
@@ -30,6 +34,12 @@ progress::-webkit-progress-value {
 }
 .details h3{
 	color: white; /* Specifies the text colour*/
+}
+.downloadbtn{
+  border-radius:0;
+  background: #1a1a1a;
+  color:white;
+  border:0px;
 }
 .soundcloudlogo{
 	margin-left: 4px;

@@ -9,12 +9,15 @@ var Footer  = require('../components/footer.components.jsx');
 var Details = require('../components/details.components.jsx');
 var Player  = require('../components/player.components.jsx');
 var ProgBar = require('../components/progress.components.jsx');
+var Download= require('../components/download.components.jsx');
 
 var AppContainer = React.createClass({
 
 	getInitialState : function(){
       return{ 
       	track: {stream_url: '', title: '', artwork_url: ''},
+        next_track: {stream_url: '', title: '', artwork_url: ''},
+        prev_track: {stream_url: '', title: '', artwork_url: ''},
       	playStatus: Sound.status.PLAYING,
       	elapsed: '00:00',
         total: '00:00',
@@ -38,13 +41,13 @@ var AppContainer = React.createClass({
 	   this.setState({playStatus: Sound.status.STOPPED});
   	},
     forward(){
-      this.setState({track: response.data.tracks[randomNumber + 1]});
+      this.setState({track: this.state.next_track});
   	},
   	backward(){
-      this.setState({track: response.data.tracks[randomNumber - 1]});
+      this.setState({track: this.state.prev_track});
   	},
     randomize(){
-
+      this.randomTrack();
     },
     prepareUrl(url){                                                    //uhmm...changing the quotes changes the code?
       return `${url}?client_id=`                                        //PUT ID here
@@ -91,8 +94,12 @@ var AppContainer = React.createClass({
     	console.log(playlistLength);
       const randomNumber = Math.floor((Math.random() * playlistLength) + 1); //For random track number
       _this.setState({track: response.data.tracks[randomNumber]});
-  		})
-  		.catch(function (error) {
+      if(randomNumber)
+      _this.setState({next_track:response.data.tracks[randomNumber + 1]});
+
+      _this.setState({prev_track:response.data.tracks[randomNumber - 1]}); //Hmm,react is smart.Sets state calls are done in batches.
+  		})                                                                   //So, pressing next track after prev track takes us to next track
+  		.catch(function (error) {                                            // of the initial track. Will have to fix this. And ArrayOutOfBounds shit
     	console.log(error);
   		});
 
@@ -119,6 +126,7 @@ var AppContainer = React.createClass({
         <ProgBar elapsed={this.state.elapsed}
           				total={this.state.total}
           				position={this.state.position} />
+        <Download mp3link={this.prepareUrl(this.state.track.stream_url)} />
 				<Footer/>
 			</div>
 			);
