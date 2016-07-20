@@ -1,11 +1,15 @@
 *,*:before, *:after {
 	box-sizing: border-box;
 }
+html{
 
+}
 body{
   margin: 0;
-  background-image: url("../img/background.jpg");
-  /* change font-fam */
+  font-family: 'Montserrat','Indie Flower', sans-serif;/* change font-fam */
+  /*background-image: url("../img/background.jpg");
+  background-size: cover; Fix Image res*/
+  background-color: #263238;
 }
 progress {
   /* Reset the default appearance */
