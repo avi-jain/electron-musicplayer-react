@@ -94,10 +94,18 @@ var AppContainer = React.createClass({
     	console.log(playlistLength);
       const randomNumber = Math.floor((Math.random() * playlistLength) + 1); //For random track number
       _this.setState({track: response.data.tracks[randomNumber]});
-      if(randomNumber)
-      _this.setState({next_track:response.data.tracks[randomNumber + 1]});
-
-      _this.setState({prev_track:response.data.tracks[randomNumber - 1]}); //Hmm,react is smart.Sets state calls are done in batches.
+      if(randomNumber<playlistLength){
+        _this.setState({next_track:response.data.tracks[randomNumber + 1]});
+      }
+      else{
+        //try a toast notification here
+      }
+      if(randomNumber>0){
+        _this.setState({prev_track:response.data.tracks[randomNumber - 1]});
+      }
+      else{
+        //try a toast notification here
+      }                                                                    //Hmm,react is smart.Sets state calls are done in batches.
   		})                                                                   //So, pressing next track after prev track takes us to next track
   		.catch(function (error) {                                            // of the initial track. Will have to fix this. And ArrayOutOfBounds shit
     	console.log(error);
