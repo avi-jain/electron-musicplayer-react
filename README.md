@@ -19,3 +19,13 @@ TO-DO ->
 Learn more about Electron and its API in the [documentation](http://electron.atom.io/docs/latest).
 Link to the tutorial : https://scotch.io/tutorials/build-a-music-player-with-react-electron-i-setup-basic-concepts
 
+<<<<<<< HEAD
+TO-DO -> 1.~~Implement player controls~~
+		 2.Implement the autocomplete/search functionality
+		 3.Improve aesthetics (Cover Art maybe)
+		 4.Implement seeker
+		 5.~~Implement downloader~~
+		 6.Implement batch download of playlists
+		 7.Improve Code :P
+=======
+>>>>>>> 7b22b667f7c7ff543105e481509c848fb69077e3
